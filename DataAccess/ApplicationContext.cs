@@ -12,6 +12,7 @@ namespace HomeWork.DataAccess
         {
         }
 
+        public DbSet<Client> Clients { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<EmployeeProject> EmployeeProjects { get; set; }
         public DbSet<Office> Offices { get; set; }

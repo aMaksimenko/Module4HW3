@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace HomeWork.Migrations
 {
-    public partial class AddClient : Migration
+    public partial class AddClients : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace HomeWork.Migrations
                 defaultValue: 0);
 
             migrationBuilder.CreateTable(
-                name: "Client",
+                name: "Clients",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -27,11 +27,11 @@ namespace HomeWork.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Client", x => x.Id);
+                    table.PrimaryKey("PK_Clients", x => x.Id);
                 });
 
             migrationBuilder.InsertData(
-                table: "Client",
+                table: "Clients",
                 columns: new[] { "Id", "CountryFrom", "Email", "PhoneNumber", "Title" },
                 values: new object[,]
                 {
@@ -47,11 +47,11 @@ namespace HomeWork.Migrations
                 columns: new[] { "Id", "Budget", "ClientId", "Name", "StartedDate" },
                 values: new object[,]
                 {
-                    { 1, 1000m, 1, "First project", new DateTime(2021, 11, 10, 15, 15, 24, 325, DateTimeKind.Local).AddTicks(4000) },
-                    { 2, 1000m, 2, "Second project", new DateTime(2020, 4, 26, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3130) },
-                    { 3, 1000m, 3, "Third project", new DateTime(2021, 8, 9, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3430) },
-                    { 4, 1000m, 4, "Fourth project", new DateTime(2021, 9, 28, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3450) },
-                    { 5, 1000m, 5, "Fifth project", new DateTime(2021, 5, 21, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3460) }
+                    { 1, 1000m, 1, "First project", new DateTime(2021, 11, 11, 8, 35, 33, 381, DateTimeKind.Local).AddTicks(9950) },
+                    { 2, 1000m, 2, "Second project", new DateTime(2020, 4, 27, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6070) },
+                    { 3, 1000m, 3, "Third project", new DateTime(2021, 8, 10, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6430) },
+                    { 4, 1000m, 4, "Fourth project", new DateTime(2021, 9, 29, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6450) },
+                    { 5, 1000m, 5, "Fifth project", new DateTime(2021, 5, 22, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6460) }
                 });
 
             migrationBuilder.CreateIndex(
@@ -60,10 +60,10 @@ namespace HomeWork.Migrations
                 column: "ClientId");
 
             migrationBuilder.AddForeignKey(
-                name: "FK_Projects_Client_ClientId",
+                name: "FK_Projects_Clients_ClientId",
                 table: "Projects",
                 column: "ClientId",
-                principalTable: "Client",
+                principalTable: "Clients",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }
@@ -71,11 +71,11 @@ namespace HomeWork.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropForeignKey(
-                name: "FK_Projects_Client_ClientId",
+                name: "FK_Projects_Clients_ClientId",
                 table: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Client");
+                name: "Clients");
 
             migrationBuilder.DropIndex(
                 name: "IX_Projects_ClientId",

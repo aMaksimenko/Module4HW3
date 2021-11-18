@@ -47,7 +47,7 @@ namespace HomeWork.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Client");
+                    b.ToTable("Clients");
 
                     b.HasData(
                         new
@@ -217,7 +217,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 1,
                             Name = "First project",
-                            StartedDate = new DateTime(2021, 11, 10, 15, 15, 24, 325, DateTimeKind.Local).AddTicks(4000)
+                            StartedDate = new DateTime(2021, 11, 11, 8, 35, 33, 381, DateTimeKind.Local).AddTicks(9950)
                         },
                         new
                         {
@@ -225,7 +225,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 2,
                             Name = "Second project",
-                            StartedDate = new DateTime(2020, 4, 26, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3130)
+                            StartedDate = new DateTime(2020, 4, 27, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6070)
                         },
                         new
                         {
@@ -233,7 +233,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 3,
                             Name = "Third project",
-                            StartedDate = new DateTime(2021, 8, 9, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3430)
+                            StartedDate = new DateTime(2021, 8, 10, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6430)
                         },
                         new
                         {
@@ -241,7 +241,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 4,
                             Name = "Fourth project",
-                            StartedDate = new DateTime(2021, 9, 28, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3450)
+                            StartedDate = new DateTime(2021, 9, 29, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6450)
                         },
                         new
                         {
@@ -249,7 +249,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 5,
                             Name = "Fifth project",
-                            StartedDate = new DateTime(2021, 5, 21, 15, 15, 24, 340, DateTimeKind.Local).AddTicks(3460)
+                            StartedDate = new DateTime(2021, 5, 22, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6460)
                         });
                 });
 
