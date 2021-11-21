@@ -10,6 +10,23 @@ namespace HomeWork.DataAccess.Configurations
         {
             builder.HasKey(p => p.Id);
             builder.Property(p => p.Name).HasMaxLength(50).IsRequired();
+
+            builder.HasData(
+                new Title()
+                {
+                    Id = 1,
+                    Name = "Developer"
+                },
+                new Title()
+                {
+                    Id = 2,
+                    Name = "Manager"
+                },
+                new Title()
+                {
+                    Id = 3,
+                    Name = "QA"
+                });
         }
     }
 }

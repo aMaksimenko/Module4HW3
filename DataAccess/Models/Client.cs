@@ -9,6 +9,6 @@ namespace HomeWork.DataAccess.Models
         public string Email { get; set; }
         public int PhoneNumber { get; set; }
         public string CountryFrom { get; set; }
-        public List<Project> Projects { get; set; } = new List<Project>();
+        public virtual List<Project> Projects { get; set; } = new List<Project>();
     }
 }

@@ -4,14 +4,16 @@ using HomeWork.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace HomeWork.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211118063534_AddClients")]
+    partial class AddClients
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,7 +101,7 @@ namespace HomeWork.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime?>("DateOfBirth")
+                    b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("date");
 
                     b.Property<string>("FirstName")
@@ -129,58 +131,6 @@ namespace HomeWork.Migrations
                     b.HasIndex("TitleId");
 
                     b.ToTable("Employees");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DateOfBirth = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Bob",
-                            HiredDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastName = "Marley",
-                            OfficeId = 1,
-                            TitleId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DateOfBirth = new DateTime(1995, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Bob",
-                            HiredDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastName = "Marley",
-                            OfficeId = 2,
-                            TitleId = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DateOfBirth = new DateTime(1960, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "James",
-                            HiredDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastName = "Ollof",
-                            OfficeId = 1,
-                            TitleId = 3
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DateOfBirth = new DateTime(1994, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Arthur",
-                            HiredDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastName = "Martin",
-                            OfficeId = 2,
-                            TitleId = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            DateOfBirth = new DateTime(1998, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Bill",
-                            HiredDate = new DateTime(2020, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            LastName = "Gates",
-                            OfficeId = 3,
-                            TitleId = 2
-                        });
                 });
 
             modelBuilder.Entity("HomeWork.DataAccess.Models.EmployeeProject", b =>
@@ -210,48 +160,6 @@ namespace HomeWork.Migrations
                     b.HasIndex("ProjectId");
 
                     b.ToTable("EmployeeProjects");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EmployeeId = 1,
-                            ProjectId = 1,
-                            Rate = 1000m,
-                            StartedDate = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EmployeeId = 1,
-                            ProjectId = 2,
-                            Rate = 3000m,
-                            StartedDate = new DateTime(1995, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EmployeeId = 3,
-                            ProjectId = 3,
-                            Rate = 55555m,
-                            StartedDate = new DateTime(2005, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 4,
-                            EmployeeId = 1,
-                            ProjectId = 4,
-                            Rate = 55555m,
-                            StartedDate = new DateTime(2005, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        },
-                        new
-                        {
-                            Id = 5,
-                            EmployeeId = 4,
-                            ProjectId = 5,
-                            Rate = 55555m,
-                            StartedDate = new DateTime(2005, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
-                        });
                 });
 
             modelBuilder.Entity("HomeWork.DataAccess.Models.Office", b =>
@@ -274,26 +182,6 @@ namespace HomeWork.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Offices");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Location = "Alekseevka",
-                            Title = "Office #1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Location = "Saltovka",
-                            Title = "Office #3"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Location = "Bot Sad",
-                            Title = "Office #5"
-                        });
                 });
 
             modelBuilder.Entity("HomeWork.DataAccess.Models.Project", b =>
@@ -331,7 +219,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 1,
                             Name = "First project",
-                            StartedDate = new DateTime(2021, 11, 14, 13, 11, 51, 646, DateTimeKind.Local).AddTicks(6650)
+                            StartedDate = new DateTime(2021, 11, 11, 8, 35, 33, 381, DateTimeKind.Local).AddTicks(9950)
                         },
                         new
                         {
@@ -339,7 +227,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 2,
                             Name = "Second project",
-                            StartedDate = new DateTime(2020, 4, 30, 13, 11, 51, 662, DateTimeKind.Local).AddTicks(2620)
+                            StartedDate = new DateTime(2020, 4, 27, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6070)
                         },
                         new
                         {
@@ -347,7 +235,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 3,
                             Name = "Third project",
-                            StartedDate = new DateTime(2021, 8, 13, 13, 11, 51, 662, DateTimeKind.Local).AddTicks(2960)
+                            StartedDate = new DateTime(2021, 8, 10, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6430)
                         },
                         new
                         {
@@ -355,7 +243,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 4,
                             Name = "Fourth project",
-                            StartedDate = new DateTime(2021, 10, 2, 13, 11, 51, 662, DateTimeKind.Local).AddTicks(2980)
+                            StartedDate = new DateTime(2021, 9, 29, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6450)
                         },
                         new
                         {
@@ -363,7 +251,7 @@ namespace HomeWork.Migrations
                             Budget = 1000m,
                             ClientId = 5,
                             Name = "Fifth project",
-                            StartedDate = new DateTime(2021, 5, 25, 13, 11, 51, 662, DateTimeKind.Local).AddTicks(3210)
+                            StartedDate = new DateTime(2021, 5, 22, 8, 35, 33, 397, DateTimeKind.Local).AddTicks(6460)
                         });
                 });
 
@@ -382,23 +270,6 @@ namespace HomeWork.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Titles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Name = "Developer"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Name = "Manager"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Name = "QA"
-                        });
                 });
 
             modelBuilder.Entity("HomeWork.DataAccess.Models.Employee", b =>

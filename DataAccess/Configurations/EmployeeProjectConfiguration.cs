@@ -1,3 +1,4 @@
+using System;
 using HomeWork.DataAccess.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -21,6 +22,48 @@ namespace HomeWork.DataAccess.Configurations
                 .WithMany(p => p.EmployeeProjects)
                 .HasForeignKey(p => p.EmployeeId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasData(
+                new EmployeeProject()
+                {
+                    Id = 1,
+                    Rate = 1000,
+                    StartedDate = new DateTime(1990, 1, 1),
+                    EmployeeId = 1,
+                    ProjectId = 1
+                },
+                new EmployeeProject()
+                {
+                    Id = 2,
+                    Rate = 3000,
+                    StartedDate = new DateTime(1995, 1, 1),
+                    EmployeeId = 1,
+                    ProjectId = 2
+                },
+                new EmployeeProject()
+                {
+                    Id = 3,
+                    Rate = 55555,
+                    StartedDate = new DateTime(2005, 1, 1),
+                    EmployeeId = 3,
+                    ProjectId = 3
+                },
+                new EmployeeProject()
+                {
+                    Id = 4,
+                    Rate = 55555,
+                    StartedDate = new DateTime(2005, 1, 1),
+                    EmployeeId = 1,
+                    ProjectId = 4
+                },
+                new EmployeeProject()
+                {
+                    Id = 5,
+                    Rate = 55555,
+                    StartedDate = new DateTime(2005, 1, 1),
+                    EmployeeId = 4,
+                    ProjectId = 5
+                });
         }
     }
 }
